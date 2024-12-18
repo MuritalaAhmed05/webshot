@@ -12,6 +12,10 @@ const Header = () => {
     setMenuOpen(!menuOpen)
   }
 
+  const closeMenu = () => {
+    setMenuOpen(false)
+  }
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -50 }}
@@ -42,18 +46,21 @@ const Header = () => {
         >
           <Link
             href="/"
+            onClick={closeMenu}
             className="block text-gray-700 hover:text-blue-600 transition duration-300 py-2 px-4 md:py-0"
           >
             Home
           </Link>
           <Link
             href="/about"
+            onClick={closeMenu}
             className="block text-gray-700 hover:text-blue-600 transition duration-300 py-2 px-4 md:py-0"
           >
             About
           </Link>
           <Link
             href="/contact"
+            onClick={closeMenu}
             className="block text-gray-700 hover:text-blue-600 transition duration-300 py-2 px-4 md:py-0"
           >
             Contact

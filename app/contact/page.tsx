@@ -17,9 +17,14 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
-    console.log('Form submitted:', formData)
-    // Reset form after submission
+
+    const whatsappMessage = `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=2349020507509&text=${encodeURIComponent(whatsappMessage)}&type=phone_number&app_absent=0`
+    
+    // Open WhatsApp message in new tab
+    window.open(whatsappUrl, '_blank', 'noopener noreferrer')
+    
+    // Clear form data after submission
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -98,4 +103,3 @@ export default function Contact() {
     </div>
   )
 }
-
