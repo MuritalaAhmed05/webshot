@@ -1,9 +1,7 @@
 'use client'
-
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'
-
 const Footer = () => {
   return (
     <motion.footer
@@ -14,12 +12,12 @@ const Footer = () => {
     >
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-6 md:space-y-0">
-          {/* Branding Section */}
+          {}
           <div className="w-full md:w-1/3">
-            <h3 className="text-lg font-semibold text-gray-800">ThumbnailPro</h3>
+            <h3 className="text-lg font-semibold text-gray-800">WebFullshot</h3>
             <p className="text-sm text-gray-600 mt-1">Capture your website's full potential</p>
           </div>
-          {/* Links Section */}
+          {}
           <div className="w-full md:w-1/3">
             <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-4">
               <Link href="/terms" className="text-sm text-gray-600 hover:text-blue-600 transition duration-300">
@@ -30,7 +28,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          {/* Social Media Section */}
+          {}
           <div className="w-full md:w-1/3 flex justify-center md:justify-end space-x-4">
             <motion.a
               whileHover={{ scale: 1.1 }}
@@ -58,13 +56,12 @@ const Footer = () => {
             </motion.a>
           </div>
         </div>
-        {/* Copyright Section */}
+        {}
         <div className="mt-6 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} ThumbnailPro. All Rights Reserved.
+          © {new Date().getFullYear()} WebFullshot. All Rights Reserved.
         </div>
       </div>
     </motion.footer>
   )
 }
-
 export default Footer

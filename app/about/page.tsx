@@ -1,10 +1,7 @@
 'use client';
-
 import React, { JSX } from 'react';
 import { motion } from 'framer-motion';
 import { Monitor, Zap, Globe, Shield } from 'lucide-react';
-
-// Component for individual feature cards
 const FeatureCard: React.FC<{ icon: JSX.Element; title: string; description: string }> = ({
   icon,
   title,
@@ -22,7 +19,6 @@ const FeatureCard: React.FC<{ icon: JSX.Element; title: string; description: str
     <p className="text-gray-600">{description}</p>
   </motion.div>
 );
-
 const About: React.FC = () => {
   const features = [
     {
@@ -46,10 +42,9 @@ const About: React.FC = () => {
       description: 'Your data is protected with enterprise-grade security.',
     },
   ];
-
   return (
     <div className="py-16">
-      {/* Section Title */}
+      {}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -62,8 +57,7 @@ const About: React.FC = () => {
             We make it simple to capture and share beautiful thumbnails of any website.
           </p>
         </div>
-
-        {/* Features Grid */}
+        {}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <FeatureCard
@@ -74,8 +68,7 @@ const About: React.FC = () => {
             />
           ))}
         </div>
-
-        {/* Call-to-Action Section */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,5 +91,4 @@ const About: React.FC = () => {
     </div>
   );
 };
-
 export default About;

@@ -6,8 +6,8 @@ import Footer from './components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Thumbnail Preview Service',
-  description: 'Capture your website\'s full potential with our thumbnail preview service',
+  title: 'WebFullShot',
+  description: 'Capture your website\'s full potential with our WebFullShot',
 }
 
 export default function RootLayout({

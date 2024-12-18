@@ -1,17 +1,13 @@
 'use client'
-
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ThumbnailGenerator from './components/ThumbnailGenerator'
 import ThumbnailGrid from './components/ThumbnailGrid'
-
 export default function Home() {
   const [thumbnails, setThumbnails] = useState<{ originalUrl: string; thumbnailUrl: string }[]>([])
-
   const addThumbnail = (thumbnail: { originalUrl: string; thumbnailUrl: string }) => {
     setThumbnails([...thumbnails, thumbnail])
   }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <motion.section
@@ -42,4 +38,3 @@ export default function Home() {
     </div>
   )
 }
-

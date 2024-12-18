@@ -1,17 +1,13 @@
 'use client'
-
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaArrowRight } from 'react-icons/fa' // Import icon
-
+import { FaArrowRight } from 'react-icons/fa'
 interface ThumbnailGeneratorProps {
   onThumbnailGenerated: (thumbnail: { originalUrl: string; thumbnailUrl: string }) => void
 }
-
 const ThumbnailGenerator: React.FC<ThumbnailGeneratorProps> = ({ onThumbnailGenerated }) => {
   const [url, setUrl] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
@@ -20,11 +16,10 @@ const ThumbnailGenerator: React.FC<ThumbnailGeneratorProps> = ({ onThumbnailGene
     setIsLoading(false)
     setUrl('')
   }
-
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto px-4">
       <div className="flex flex-wrap items-center border-2 border-blue-300 rounded-lg overflow-hidden shadow-lg">
-        {/* Input Field */}
+        {}
         <input
           type="url"
           value={url}
@@ -33,7 +28,7 @@ const ThumbnailGenerator: React.FC<ThumbnailGeneratorProps> = ({ onThumbnailGene
           required
           className="flex-1 min-w-0 px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none rounded-lg"
         />
-        {/* Submit Button (Desktop) */}
+        {}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -45,7 +40,7 @@ const ThumbnailGenerator: React.FC<ThumbnailGeneratorProps> = ({ onThumbnailGene
         >
           {isLoading ? 'Generating...' : 'Generate'}
         </motion.button>
-        {/* Submit Icon (Mobile) */}
+        {}
         <motion.button
           type="submit"
           disabled={isLoading}
@@ -59,5 +54,4 @@ const ThumbnailGenerator: React.FC<ThumbnailGeneratorProps> = ({ onThumbnailGene
     </form>
   )
 }
-
 export default ThumbnailGenerator

@@ -1,21 +1,16 @@
 'use client'
-
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
   }
-
   const closeMenu = () => {
     setMenuOpen(false)
   }
-
   return (
     <motion.header
       initial={{ opacity: 0, y: -50 }}
@@ -24,12 +19,11 @@ const Header = () => {
       className="bg-white shadow-md"
     >
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        {/* Logo */}
+        {}
         <Link href="/" className="text-2xl font-bold text-blue-600 whitespace-nowrap">
-          ThumbnailPro
+          WebFullShot
         </Link>
-
-        {/* Hamburger Icon (Mobile) */}
+        {}
         <button
           onClick={toggleMenu}
           className="text-blue-600 md:hidden focus:outline-none"
@@ -37,8 +31,7 @@ const Header = () => {
         >
           {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
-
-        {/* Navigation Links */}
+        {}
         <div
           className={`absolute md:static top-16 left-0 w-full bg-white md:bg-transparent flex flex-col md:flex-row md:items-center md:justify-end md:space-x-8 z-10 transition-all duration-300 ease-in-out ${
             menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none md:pointer-events-auto md:opacity-100'
@@ -70,5 +63,4 @@ const Header = () => {
     </motion.header>
   )
 }
-
 export default Header

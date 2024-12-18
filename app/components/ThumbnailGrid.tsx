@@ -1,45 +1,33 @@
 'use client'
-
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { FaExternalLinkAlt, FaDownload, FaShareAlt } from 'react-icons/fa'
-
 interface ThumbnailGridProps {
   thumbnails: { originalUrl: string; thumbnailUrl: string }[]
 }
-
 const ThumbnailGrid: React.FC<ThumbnailGridProps> = ({ thumbnails }) => {
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
-
   const handleShare = async (thumbnailUrl: string) => {
     if (navigator.share) {
       try {
         const response = await fetch(thumbnailUrl)
         const blob = await response.blob()
-
         const file = new File([blob], 'thumbnail.jpg', { type: blob.type })
         await navigator.share({
           title: 'Check out this image!',
           text: 'Here is an amazing thumbnail I found:',
           files: [file],
         })
-
-        // Show success notification only when sharing succeeds
         setNotification({ message: 'Pls choose where you want to share to', type: 'success' })
       } catch (error) {
-        // Handle any errors during the sharing process
         setNotification({ message: 'Failed to share the image.', type: 'error' })
         console.error('Sharing error:', error)
       }
     } else {
-      // Notify user that sharing is not supported
       setNotification({ message: 'Sharing is not supported in this browser.', type: 'error' })
     }
-
-    // Clear notification after 3 seconds
     setTimeout(() => setNotification(null), 3000)
   }
-
   const handleDownload = async (thumbnailUrl: string) => {
     try {
       const response = await fetch(thumbnailUrl)
@@ -55,7 +43,6 @@ const ThumbnailGrid: React.FC<ThumbnailGridProps> = ({ thumbnails }) => {
       setTimeout(() => setNotification(null), 3000)
     }
   }
-
   return (
     <div className="container mx-auto px-6 py-12">
       {notification && (
@@ -67,7 +54,6 @@ const ThumbnailGrid: React.FC<ThumbnailGridProps> = ({ thumbnails }) => {
           {notification.message}
         </div>
       )}
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {thumbnails.map((thumbnail, index) => (
           <motion.div
@@ -98,7 +84,6 @@ const ThumbnailGrid: React.FC<ThumbnailGridProps> = ({ thumbnails }) => {
                     Visit Website
                   </span>
                 </motion.a>
-
                 <motion.button
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.95 }}
@@ -110,7 +95,6 @@ const ThumbnailGrid: React.FC<ThumbnailGridProps> = ({ thumbnails }) => {
                     Share
                   </span>
                 </motion.button>
-
                 <motion.button
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.95 }}
@@ -130,5 +114,4 @@ const ThumbnailGrid: React.FC<ThumbnailGridProps> = ({ thumbnails }) => {
     </div>
   )
 }
-
 export default ThumbnailGrid
