@@ -15,7 +15,7 @@ const FeatureCard: React.FC<{ icon: JSX.Element; title: string; description: str
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.3 }}
-    className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+    className="bg-white p-6 rounded-xl shadow-lg hover:shadow-md transition-shadow border-gray-200 border-[1px]"
   >
     <div className="text-blue-600 mb-4">{icon}</div>
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
